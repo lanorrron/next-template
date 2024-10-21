@@ -24,7 +24,6 @@ export const Navigation = (): MenuTypes => {
         },
         {
             title: 'Integrations',
-            path: '/',
             icon: MdIntegrationInstructions,
             subMenuItems: [
                 {

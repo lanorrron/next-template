@@ -8,7 +8,7 @@ interface SubMenuItem  {
 
 interface MenuItem {
     title: string;
-    path: string;
+    path?: string;
     action? : string;
     subject? : string;
     icon: any;

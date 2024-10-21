@@ -1,6 +1,8 @@
+'use client'
+import {useRouter} from "next/navigation";
 
 export default function Home() {
-  return (
-      <div></div>
-  );
+  const router = useRouter()
+  router.replace('/dashboard')
+  return <></>
 }
