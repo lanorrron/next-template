@@ -9,7 +9,7 @@ interface InputProps extends HTMLAttributes<HTMLInputElement> {
     backGroundLabel?: string;
     icon?: React.ReactNode
     error?: boolean
-    errorMessage?:string
+    errorMessage?: string
 }
 
 /**
@@ -19,14 +19,21 @@ interface InputProps extends HTMLAttributes<HTMLInputElement> {
  *
  * @param defaultValue 'bg-card'
  */
-export const Input: FC<InputProps> = ({backGroundLabel = 'bg-card', icon, value = '', error = false, errorMessage='',...props}) => {
+export const Input: FC<InputProps> = ({
+                                          backGroundLabel = 'bg-card',
+                                          icon,
+                                          value = '',
+                                          error = false,
+                                          errorMessage = '',
+                                          ...props
+                                      }) => {
     const [isFocused, setIsFocused] = useState(false); // Estado para controlar el enfoque
 
     return (
         <div className="relative w-full">
             <input
                 {...props}
-                className={`peer w-full h-12 bg-transparent text-foreground text-sm border-[1.5px] border-input rounded-md px-3 py-2 transition duration-300 ease focus:outline-none hover:border-[1px] focus:${error ? 'border-red-500' : 'border-primary'} hover:${error ? 'border-red-500' : 'border-muted-foreground'} shadow-sm focus:shadow focus:border-2 ${error ? 'border-red-500' : ''}
+                className={`peer w-full h-12 bg-transparent text-foreground text-sm border-[1.5px] border-input rounded-md px-3 py-2 transition duration-300 ease focus:outline-none hover:border-[1px] ${error? 'focus: border-red-500 hover:border-red-500':'focus:border-primary hover:border-muted-foreground'} shadow-sm focus:shadow focus:border-2 }
                    ${isFocused ? 'placeholder:text-muted-foreground' : 'placeholder:text-transparent'}`}
                 onFocus={() => setIsFocused(true)} // Establece el enfoque
                 onBlur={() => setIsFocused(false)} // Limpia el enfoque
@@ -39,7 +46,7 @@ export const Input: FC<InputProps> = ({backGroundLabel = 'bg-card', icon, value 
                     {icon}
                 </IconButton>
             )}
-            <span className={'text-red-500 ml-3 text-sm'}>{errorMessage?errorMessage:''}</span>
+            <span className={'text-red-500 ml-3 text-sm'}>{errorMessage ? errorMessage : ''}</span>
             <label style={{top: isFocused ? '-0.66rem' : ''}}
                    className={`absolute cursor-text px-1 left-2.5 text-base font-normal transition-all transform origin-left 
                     peer-placeholder-shown:top-1.5 
