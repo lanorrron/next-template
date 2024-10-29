@@ -1,7 +1,7 @@
 const Dashboard = ()=>{
     return(
         <div>
-            <a href="">hola</a>
+            my dashboard
         </div>
     )
 }

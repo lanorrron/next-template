@@ -56,10 +56,8 @@ const Header = () => {
                     <div>
                         <IoMdMenu onClick={() => handleChangeOpenDrawer()} className={'cursor-pointer text-2xl'}/>
                         <Drawer onClose={handleChangeOpenDrawer} isOpen={openDrawer} classNameContent={'w-80'}>
-                            <div>
                                 <SidebarHeader isOpenDrawer={openDrawer}/>
                                 <SidebarContent/>
-                            </div>
                         </Drawer>
                     </div>
 

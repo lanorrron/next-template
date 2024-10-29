@@ -26,7 +26,7 @@ const Drawer: React.FC<DrawerProps> = ({
             onClick={onClose}
         >
             <div
-                className={`w-64 h-full bg-background text-white transform ${isOpen ? openClass : translateClass} transition-transform duration-300 ease-in-out flex flex-col ${classNameContent}`}
+                className={`w-64 h-full bg-background transform ${isOpen ? openClass : translateClass} transition-transform duration-300 ease-in-out flex flex-col ${classNameContent}`}
             >
                 <div className={`p-4 flex-grow`}>{children}</div>
 
