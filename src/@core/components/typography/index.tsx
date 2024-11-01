@@ -7,8 +7,8 @@ const variantMapping = {
     h4: 'text-xl font-semibold',
     h5: 'text-lg font-semibold',
     h6: 'text-base font-semibold',
-    subtitle1: 'text-lg font-medium text-gray-600',
-    subtitle2: 'text-base font-medium text-gray-600',
+    subtitle1: 'text-lg font-medium',
+    subtitle2: 'text-base font-medium ',
     body1: 'text-base',
     body2: 'text-sm',
     inherit: '',
@@ -20,7 +20,7 @@ interface Props {
 }
 
 const Typography = ({ variant = 'inherit', className = '', children }: Props) => {
-    const classes = `${variantMapping[variant]} ${className}`.trim();
+    const classes = `text-foreground ${variantMapping[variant]} ${className}`.trim();
 
     return <span className={classes}>{children}</span>;
 };

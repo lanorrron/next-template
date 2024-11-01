@@ -28,17 +28,16 @@ export const AuthProvider = ({children}: { children: React.ReactNode }) => {
                 router.replace('/dashboard');
             else setLoading(false);
         } else {
-            if ((pathName === '/login' && !token) || (!token && pathName ==='/' ))
+            if ((pathName === '/login' && !token) || (!token && pathName === '/'))
                 router.replace('/login');
-
-            setLoading(false);
         }
+        setLoading(false)
     }, [router, pathName]);
 
     async function login({email, password}: LoginParams): Promise<{ success: boolean, message?: string }> {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                if (email === "test@example.com" && password === "password123") {
+                if (email === "admin@example.com" && password === "admin") {
                     setUser({id: 'user_12345', first_name: 'Jhon', last_name: 'Doe', email})
                     setIsAuthenticated(true);
                     localStorage.setItem('token', "simulated-jwt-token");
@@ -48,7 +47,8 @@ export const AuthProvider = ({children}: { children: React.ReactNode }) => {
                     reject({success: false, message: "Invalid credentials"});
                 }
             }, 3000);
-        });
+        }).finally(() =>
+            setLoading(false));
     }
 
     function logout() {
