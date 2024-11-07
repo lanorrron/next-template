@@ -26,7 +26,7 @@ const Header = () => {
 
         if (container) {
             const handleScroll = () => {
-                let div = document.getElementById('myDiv');
+                const div = document.getElementById('myDiv');
                 if (container.scrollTop > 10) {
                     div?.classList.add('px-4', 'transition-all', 'shadow-lg', 'duration-500', 'bg-card'); // Cambia color de fondo a rojo
                 } else {

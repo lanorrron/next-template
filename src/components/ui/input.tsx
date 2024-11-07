@@ -1,8 +1,8 @@
 'use client'
-import React, {FC, HTMLAttributes, useState} from 'react';
+import React, {FC, useState} from 'react';
 import IconButton from "@/@core/components/button/IconButton";
 
-interface InputProps extends HTMLAttributes<HTMLInputElement> {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>{
     label: string;
     value: string;
     placeholder?: string

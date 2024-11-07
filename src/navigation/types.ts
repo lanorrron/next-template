@@ -1,9 +1,11 @@
+import {IconType} from "react-icons";
+
 interface SubMenuItem  {
     title: string;
     path: string;
     action? : string;
     subject? : string;
-    icon?: any;
+    icon?: IconType;
 }
 
 interface MenuItem {
@@ -11,7 +13,7 @@ interface MenuItem {
     path?: string;
     action? : string;
     subject? : string;
-    icon: any;
+    icon: IconType;
     subMenuItems?: SubMenuItem[];
 }
 export type MenuTypes = MenuItem[];

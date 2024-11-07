@@ -1,7 +1,7 @@
 'use client'
 import {createContext, useEffect, useState} from "react";
 import {usePathname, useRouter} from "next/navigation";
-import {AuthValues, LoginParams} from "@/context/types";
+import {AuthValues, LoginParams, UserType} from "@/context/types";
 import {Loader} from "@/@core/components/loader/Loader";
 
 const defaultValueProvider: AuthValues = {
@@ -15,7 +15,7 @@ export const AuthContext = createContext(defaultValueProvider)
 
 export const AuthProvider = ({children}: { children: React.ReactNode }) => {
     const router = useRouter()
-    const [user, setUser] = useState<any | null>(null)
+    const [user, setUser] = useState<UserType | null>(null)
     const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false)
     const [loading, setLoading] = useState<boolean>(true);
     const pathName = usePathname()
@@ -35,10 +35,10 @@ export const AuthProvider = ({children}: { children: React.ReactNode }) => {
     }, [router, pathName]);
 
     async function login({email, password}: LoginParams): Promise<{ success: boolean, message?: string }> {
-        return new Promise((resolve, reject) => {
+        return new Promise<{success: boolean; message?: string}>((resolve, reject) => {
             setTimeout(() => {
                 if (email === "admin@example.com" && password === "admin") {
-                    setUser({id: 'user_12345', first_name: 'Jhon', last_name: 'Doe', email})
+                    setUser({id: 'user_12345', name: 'Jhon', last_name: 'Doe', email})
                     setIsAuthenticated(true);
                     localStorage.setItem('token', "simulated-jwt-token");
                     router.push('/dashboard');
