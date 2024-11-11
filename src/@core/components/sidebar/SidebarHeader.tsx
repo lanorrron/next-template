@@ -16,7 +16,6 @@ export const SidebarHeader = ({isOpenDrawer}:Props) => {
         saveSettings({ ...settings, navCollapsed: !settings.navCollapsed });
     }
     function toggleNavHidden (){
-        console.log('llega')
         saveSettings({...settings, navHidden: !settings.navHidden})
     }
 

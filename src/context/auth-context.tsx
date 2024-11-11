@@ -21,21 +21,30 @@ export const AuthProvider = ({children}: { children: React.ReactNode }) => {
     const pathName = usePathname()
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (token) {
-            setIsAuthenticated(true);
-            if (pathName === '/login' || (token && pathName === '/'))
-                router.replace('/dashboard');
-            else setLoading(false);
-        } else {
-            if ((pathName === '/login' && !token) || (!token && pathName === '/'))
-                router.replace('/login');
-        }
-        setLoading(false)
-    }, [router, pathName]);
+        const checkAuthentication = async (): Promise<void> => {
+            const token = localStorage.getItem('token');
+            const isAuthenticated = Boolean(token);
+
+            if (isAuthenticated) {
+                if (pathName === '/login' || pathName === '/') {
+                    router.replace('/dashboard');
+                }
+                setIsAuthenticated(true);
+            } else {
+                if (pathName !== '/login') {
+                    router.replace('/login');
+                }
+                setIsAuthenticated(false);
+            }
+            setLoading(false);
+        };
+
+        checkAuthentication();
+
+    }, []);
 
     async function login({email, password}: LoginParams): Promise<{ success: boolean, message?: string }> {
-        return new Promise<{success: boolean; message?: string}>((resolve, reject) => {
+        return new Promise<{ success: boolean; message?: string }>((resolve, reject) => {
             setTimeout(() => {
                 if (email === "admin@example.com" && password === "admin") {
                     setUser({id: 'user_12345', name: 'Jhon', last_name: 'Doe', email})
@@ -51,15 +60,20 @@ export const AuthProvider = ({children}: { children: React.ReactNode }) => {
             setLoading(false));
     }
 
-    function logout() {
-        setIsAuthenticated(false);
+    async function logout(): Promise<void> {
         setUser(null);
         localStorage.removeItem('token');
-        router.push('/login')
+        setIsAuthenticated(false);
+        router.replace('/login');
     }
 
     if (loading) {
-        return <Loader size={'44px'}/>;  // Mostrar pantalla de carga
+        return (
+            <div className={'h-screen flex items-center justify-center'}>
+                <Loader size={'44px'}/>
+            </div>
+        )
+
     }
 
     const values = {

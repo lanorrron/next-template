@@ -10,6 +10,7 @@ import IconButton from "@/@core/components/button/IconButton";
 import Typography from "@/@core/components/typography";
 import Drawer from "@/components/ui/Drawer";
 import {ModeToggle} from "@/@core/components/theme-dropdown/ThemeDropdown";
+import {Profile} from "@/@core/components/header/Profile";
 
 const Header = () => {
     const {settings} = useContext(SettingsContext)
@@ -74,8 +75,9 @@ const Header = () => {
                 </div>
 
             </div>
-            <div className="col-start-3 flex justify-end">
+            <div className="col-start-3 flex justify-end gap-2">
                 <ModeToggle/>
+                <Profile/>
             </div>
         </div>
     )

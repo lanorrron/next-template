@@ -1,14 +1,7 @@
-'use client'
 import {Sidebar} from "@/@core/components/sidebar/SidebarLayout";
 import Header from "@/@core/components/header/Header";
-import {useAuth} from "@/hooks/useAuth";
-import {redirect} from "next/navigation";
 
 export default function LayoutDashboard({children}: { children: React.ReactNode }) {
-    const {isAuthenticated} = useAuth()
-    if (!isAuthenticated) {
-        redirect('/login')
-    }
     return (
             <div className="relative z-0 flex h-screen w-full gap-3">
                 <Sidebar/>

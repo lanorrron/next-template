@@ -20,7 +20,7 @@ interface Props {
 }
 
 const Typography = ({ variant = 'inherit', className = '', children }: Props) => {
-    const classes = `text-foreground ${variantMapping[variant]} ${className}`.trim();
+    const classes = `${variantMapping[variant]} ${className}`.trim();
 
     return <span className={classes}>{children}</span>;
 };

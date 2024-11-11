@@ -24,7 +24,7 @@ const ForgotPassword = () => {
             <div className="hidden md:flex w-full">
                 <div className={'flex justify-center items-center w-full h-full'}>
                     <Image
-                        src="/avatars/admin-2.png"
+                        src="/pages/admin-2.png"
                         alt="Admin Avatar"
                         width={500}
                         height={500}

@@ -48,16 +48,14 @@ const Login = () => {
 
     return (
         <div className="flex h-screen">
-
             <div className={'fixed top-4 left-6 flex items-center gap-x-2 z-10'}>
                 <SiTailwindcss className={'text-primary text-4xl'}/>
                 <Typography variant={'h4'}> Hello world!</Typography>
             </div>
-
             <div className="hidden md:flex w-full">
                 <div className={'flex justify-center items-center w-full h-full'}>
                     <Image
-                        src="/avatars/admin-2.png"
+                        src="/pages/admin-2.png"
                         alt="Admin Avatar"
                         width={500}
                         height={500}
@@ -98,7 +96,7 @@ const Login = () => {
                                 <Link href={'/forgot-password'} className="text-primary">Forgot password?</Link>
                             </div>
                             <Button type={'submit'} className={'w-full'} disabled={loading}> {loading ?
-                                <Loader color={'text-primary-foreground'}/> : 'Log In'}</Button>
+                                <Loader color={'text-primary-foreground'} size={'24px'}/> : 'Log In'}</Button>
                             <div className={'justify-center'}>
                                 <span>New on our platform?</span>
                                 <Link href={'/register'} className={'text-primary'}> Create an account</Link>

@@ -18,7 +18,7 @@ const {color,variant,size,className, ...rest}= {...defaultLoaderProps, ...props}
     return (
         <div
             {...rest}
-            className={`flex items-center justify-center h-screen ${className}`}
+            className={`flex items-center justify-center ${className}`}
         >
             <div className="text-center">
                 {variant === "circular" ? (
