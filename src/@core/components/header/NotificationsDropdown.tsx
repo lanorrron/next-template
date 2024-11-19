@@ -17,8 +17,17 @@ import {IoIosClose} from "react-icons/io";
 import {TbPointFilled} from "react-icons/tb";
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip";
 
+type NotificationType ={
+    id: number;
+    title: string;
+    description: string;
+    dateTime:string;
+    image: string;
+    status: 'new' | 'read';
+}
+
 export const NotificationsDropdown = () => {
-    const [notifications, setNotifications] = useState<object[]>([
+    const [notifications, setNotifications] = useState<NotificationType[] >([
         {
             id: 1,
             title: 'New User Signup',
