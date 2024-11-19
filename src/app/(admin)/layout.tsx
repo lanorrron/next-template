@@ -8,7 +8,7 @@ export default function LayoutDashboard({children}: { children: React.ReactNode 
                 <div className="flex-1 overflow-auto mr-3" id="scrollContainer">
                    <Header></Header>
                     <div className="flex">
-                        <div className="overflow-auto flex flex-wrap mt-2">{children}</div>
+                        <div className="overflow-auto flex-1 flex-wrap mt-2">{children}</div>
                     </div>
                 </div>
             </div>

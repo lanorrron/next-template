@@ -10,14 +10,15 @@ export const SidebarContent = () => {
     const menu = Navigation();
     const pathName = usePathname();
     const { settings } = useContext(SettingsContext);
-    const [openSubMenu, setOpenSubMenu] = useState<number | null>(null); // Estado para controlar submenús
+    const [openSubMenu, setOpenSubMenu] = useState<number | null>(null);
 
     const toggleSubMenu = (index: number) => {
         setOpenSubMenu(openSubMenu === index ? null : index);
     };
 
     return (
-        <div className="flex-grow p-2 overflow-y">
+        <div className="flex-grow p-2 transparent-scrollbar"
+        >
             <div className="my-0 mx-auto items-center">
                 <ul className={'pt-2'}>
                     {menu.map((item, index) => (

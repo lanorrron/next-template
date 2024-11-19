@@ -1,29 +1,114 @@
 import {MenuTypes} from "@/navigation/types";
-import { MdDashboard } from "react-icons/md";
-import { FaUser } from "react-icons/fa";
-import { MdIntegrationInstructions } from "react-icons/md";
-import { FaRobot } from "react-icons/fa";
+import { MdOutlineDashboard } from "react-icons/md";
+import { FaRegUser } from "react-icons/fa";
+import { PiChatsBold } from "react-icons/pi";
+import { MdOutlineCastForEducation } from "react-icons/md";
+
 export const Navigation = (): MenuTypes => {
     let routes = []
     routes = [
         {
             title: 'Dashboard',
             path: '/dashboard',
-            icon: MdDashboard
+            icon: MdOutlineDashboard
         },
         {
             title: 'Clients',
             path: '/users',
-            icon: FaUser
+            icon: FaRegUser
         },
         {
-            title: 'Bots',
+            title: 'Chats',
             path: '/',
-            icon: FaRobot,
+            icon: PiChatsBold,
+        },        {
+            title: 'Chats',
+            path: '/',
+            icon: PiChatsBold,
+        },        {
+            title: 'Chats',
+            path: '/',
+            icon: PiChatsBold,
+        },        {
+            title: 'Chats',
+            path: '/',
+            icon: PiChatsBold,
+        },        {
+            title: 'Chats',
+            path: '/',
+            icon: PiChatsBold,
+        },        {
+            title: 'Chats',
+            path: '/',
+            icon: PiChatsBold,
+        },        {
+            title: 'Chats',
+            path: '/',
+            icon: PiChatsBold,
+        },        {
+            title: 'Chats',
+            path: '/',
+            icon: PiChatsBold,
+        },        {
+            title: 'Chats',
+            path: '/',
+            icon: PiChatsBold,
+        },        {
+            title: 'Chats',
+            path: '/',
+            icon: PiChatsBold,
+        },        {
+            title: 'Chats',
+            path: '/',
+            icon: PiChatsBold,
+        },        {
+            title: 'Chats',
+            path: '/',
+            icon: PiChatsBold,
+        },        {
+            title: 'Chats',
+            path: '/',
+            icon: PiChatsBold,
+        },        {
+            title: 'Chats',
+            path: '/',
+            icon: PiChatsBold,
+        },        {
+            title: 'Chats',
+            path: '/',
+            icon: PiChatsBold,
+        },        {
+            title: 'Chats',
+            path: '/',
+            icon: PiChatsBold,
+        },        {
+            title: 'Chats',
+            path: '/',
+            icon: PiChatsBold,
+        },        {
+            title: 'Chats',
+            path: '/',
+            icon: PiChatsBold,
+        },        {
+            title: 'Chats',
+            path: '/',
+            icon: PiChatsBold,
+        },        {
+            title: 'Chats',
+            path: '/',
+            icon: PiChatsBold,
+        },        {
+            title: 'Chats',
+            path: '/',
+            icon: PiChatsBold,
+        },        {
+            title: 'Chats',
+            path: '/',
+            icon: PiChatsBold,
         },
         {
-            title: 'Integrations',
-            icon: MdIntegrationInstructions,
+            title: 'Courses',
+            icon: MdOutlineCastForEducation,
             subMenuItems: [
                 {
                     title: 'React',

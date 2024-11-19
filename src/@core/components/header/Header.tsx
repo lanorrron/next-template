@@ -6,11 +6,12 @@ import {IoMdMenu} from "react-icons/io";
 import {SettingsContext} from "@/context/settings-provider";
 import {SidebarHeader} from "@/@core/components/sidebar/SidebarHeader";
 import {SidebarContent} from "@/@core/components/sidebar/SidebarContent";
-import IconButton from "@/@core/components/button/IconButton";
+import IconButton from "@/components/ui/IconButton";
 import Typography from "@/@core/components/typography";
 import Drawer from "@/components/ui/Drawer";
 import {ModeToggle} from "@/@core/components/theme-dropdown/ThemeDropdown";
-import {Profile} from "@/@core/components/header/Profile";
+import {ProfileDropdown} from "@/@core/components/header/ProfileDropdown";
+import {NotificationsDropdown} from "@/@core/components/header/NotificationsDropdown";
 
 const Header = () => {
     const {settings} = useContext(SettingsContext)
@@ -51,8 +52,8 @@ const Header = () => {
 
     return (
         <div id="myDiv"
-             className="sticky top-0 h-16 bg-background rounded transition-all p-2 grid grid-cols-3 items-center">
-            <div className="col-start-1 flex justify-start items-center gap-2">
+             className="sticky top-0 h-16 bg-background rounded transition-all p-2 grid grid-cols-3 items-center z-10 ">
+            <div className="col-start-1 flex justify-start items-center gap-2 ">
                 {settings.navHidden && (
                     <div>
                         <IoMdMenu onClick={() => handleChangeOpenDrawer()} className={'cursor-pointer text-2xl'}/>
@@ -77,10 +78,11 @@ const Header = () => {
             </div>
             <div className="col-start-3 flex justify-end gap-2">
                 <ModeToggle/>
-                <Profile/>
+                <NotificationsDropdown/>
+                <ProfileDropdown/>
+
             </div>
         </div>
     )
-        ;
 }
 export default Header;

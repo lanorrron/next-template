@@ -7,7 +7,7 @@ import { MdPermIdentity } from "react-icons/md";
 import { IoSettingsOutline } from "react-icons/io5";
 import {Button} from "@/components/ui/button";
 import { IoIosLogOut } from "react-icons/io";
-export const Profile = () => {
+export const ProfileDropdown = () => {
     const {user,logout} = useAuth()
 
     function handleLogout (){
@@ -49,7 +49,6 @@ export const Profile = () => {
 
                         </Button>
                     </div>
-
                 </DropdownMenuContent>
             </DropdownMenu>
         </div>
