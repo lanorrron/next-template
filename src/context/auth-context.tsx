@@ -3,7 +3,6 @@ import {createContext, useEffect, useState} from "react";
 import {usePathname, useRouter} from "next/navigation";
 import {AuthValues, LoginParams, UserType} from "@/context/types";
 import {Loader} from "@/@core/components/loader/Loader";
-import {json} from "node:stream/consumers";
 
 const defaultValueProvider: AuthValues = {
     user: null,

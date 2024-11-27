@@ -15,5 +15,5 @@ export interface PaginationResponse {
     currentPage: number;
     pageSize: number;
     totalPage: number;
-    items: any
+    items: UserType[]
 }

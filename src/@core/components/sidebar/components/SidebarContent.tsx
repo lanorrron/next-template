@@ -55,7 +55,7 @@ export const SidebarContent = ({onClose, isOpenDrawer}: Props) => {
                                             {item.icon && <item.icon/>} {/* Verificar si tiene un icono */}
                                         </Typography>
                                         <div
-                                            className={`ml-2 ${(settings.navCollapsed & !isOpenDrawer) && 'hidden group-hover:block transition-all duration-500'} ${isOpenDrawer && 'block'} ${ellipsisTextClass}`}>
+                                            className={`ml-2 ${(settings.navCollapsed && !isOpenDrawer) && 'hidden group-hover:block transition-all duration-500'} ${isOpenDrawer && 'block'} ${ellipsisTextClass}`}>
                                             <Typography variant={pathName === item.path ? 'h6' : 'body1'}
                                             >
                                                 {item.title}
@@ -83,7 +83,7 @@ export const SidebarContent = ({onClose, isOpenDrawer}: Props) => {
                                             {item.icon && <item.icon/>}
                                         </Typography>
                                         <div
-                                            className={`ml-2 ${(settings.navCollapsed & !isOpenDrawer ) && 'hidden group-hover:block transition-all duration-500'} ${isOpenDrawer && 'block'} ${ellipsisTextClass}`}>
+                                            className={`ml-2 ${(settings.navCollapsed && !isOpenDrawer ) && 'hidden group-hover:block transition-all duration-500'} ${isOpenDrawer && 'block'} ${ellipsisTextClass}`}>
                                             <Typography variant={'body1'}>
                                                 {item.title}
                                             </Typography>
@@ -99,7 +99,7 @@ export const SidebarContent = ({onClose, isOpenDrawer}: Props) => {
                                 </div>
                             )}
                             {item.subMenuItems && openSubMenus.includes(index) && (
-                                <ul className={`${(settings.navCollapsed & !isOpenDrawer)&& ' hidden group-hover:block'} ${isOpenDrawer && 'block'}`}>
+                                <ul className={`${(settings.navCollapsed && !isOpenDrawer) && ' hidden group-hover:block'} ${isOpenDrawer && 'block'}`}>
                                     {item.subMenuItems.map((subItem, subIndex) => (
                                         <Link href={subItem.path} key={subIndex} onClick={onClose}>
                                             <li key={subIndex}
