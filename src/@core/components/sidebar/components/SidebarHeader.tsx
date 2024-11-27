@@ -8,15 +8,13 @@ import {SettingsContext} from "@/context/settings-provider";
 
 interface Props{
     isOpenDrawer?: boolean;
+    onClose?:()=> void
 }
-export const SidebarHeader = ({isOpenDrawer}:Props) => {
+export const SidebarHeader = ({isOpenDrawer,onClose}:Props) => {
     const { settings, saveSettings } = useContext(SettingsContext);
 
     function toggleNavCollapse () {
         saveSettings({ ...settings, navCollapsed: !settings.navCollapsed });
-    }
-    function toggleNavHidden (){
-        saveSettings({...settings, navHidden: !settings.navHidden})
     }
 
     return (
@@ -25,7 +23,7 @@ export const SidebarHeader = ({isOpenDrawer}:Props) => {
             <Typography variant={'h5'} className={`${settings.navCollapsed && 'hidden group-hover:block transition-all duration-500'} ml-2`}>HelloWorld</Typography>
             <Typography variant={'h4'} className={'absolute right-4 cursor-pointer'}>
                 {isOpenDrawer?
-                    <IoMdClose onClick={()=>toggleNavHidden()}/>:
+                    <IoMdClose onClick={onClose}/>:
                     <MdKeyboardDoubleArrowLeft className={`${settings.navCollapsed?'transform rotate-180':'' } ${settings.navCollapsed && 'hidden group-hover:block transition-all duration-500'}`} onClick={()=>toggleNavCollapse()}/>
 
                 }

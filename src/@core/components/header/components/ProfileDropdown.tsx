@@ -9,7 +9,6 @@ import {Button} from "@/components/ui/button";
 import { IoIosLogOut } from "react-icons/io";
 export const ProfileDropdown = () => {
     const {user,logout} = useAuth()
-
     function handleLogout (){
         logout()
     }

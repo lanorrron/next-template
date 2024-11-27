@@ -3,6 +3,7 @@ import {createContext, useEffect, useState} from "react";
 import {usePathname, useRouter} from "next/navigation";
 import {AuthValues, LoginParams, UserType} from "@/context/types";
 import {Loader} from "@/@core/components/loader/Loader";
+import {json} from "node:stream/consumers";
 
 const defaultValueProvider: AuthValues = {
     user: null,
@@ -15,7 +16,7 @@ export const AuthContext = createContext(defaultValueProvider)
 
 export const AuthProvider = ({children}: { children: React.ReactNode }) => {
     const router = useRouter()
-    const [user, setUser] = useState<UserType | null>(null)
+    const [user, setUser] = useState<UserType | null>(defaultValueProvider.user)
     const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false)
     const [loading, setLoading] = useState<boolean>(true);
     const pathName = usePathname()
@@ -23,13 +24,15 @@ export const AuthProvider = ({children}: { children: React.ReactNode }) => {
     useEffect(() => {
         const checkAuthentication = async (): Promise<void> => {
             const token = localStorage.getItem('token');
+            const storedUser = localStorage.getItem('user')
             const isAuthenticated = Boolean(token);
 
-            if (isAuthenticated) {
+            if (isAuthenticated && storedUser) {
                 if (pathName === '/login' || pathName === '/') {
                     router.replace('/dashboard');
                 }
                 setIsAuthenticated(true);
+                setUser(JSON.parse(storedUser))
             } else {
                 if (pathName !== '/login') {
                     router.replace('/login');
@@ -42,14 +45,15 @@ export const AuthProvider = ({children}: { children: React.ReactNode }) => {
         checkAuthentication();
 
     }, []);
-
     async function login({email, password}: LoginParams): Promise<{ success: boolean, message?: string }> {
         return new Promise<{ success: boolean; message?: string }>((resolve, reject) => {
             setTimeout(() => {
                 if (email === "admin@example.com" && password === "admin") {
-                    setUser({id: 'user_12345', name: 'Jhon', last_name: 'Doe', email})
+                    const user= {id: 'user_12345', name: 'John', last_name: 'Doe', email}
+                    setUser(user)
                     setIsAuthenticated(true);
                     localStorage.setItem('token', "simulated-jwt-token");
+                    localStorage.setItem('user',JSON.stringify(user))
                     router.push('/dashboard');
                     resolve({success: true});
                 } else {
@@ -63,6 +67,7 @@ export const AuthProvider = ({children}: { children: React.ReactNode }) => {
     async function logout(): Promise<void> {
         setUser(null);
         localStorage.removeItem('token');
+        localStorage.removeItem('user')
         setIsAuthenticated(false);
         router.replace('/login');
     }

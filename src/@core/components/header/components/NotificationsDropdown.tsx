@@ -131,7 +131,7 @@ export const NotificationsDropdown = () => {
                                         <RiMailOpenLine size={'20px'}/>
                                     </TooltipTrigger>
                                     <TooltipContent>
-                                        <p>{isAllNotificationRead ? 'Mark all as read' : 'Mark all as unread'}</p>
+                                        <p>{isAllNotificationRead ? 'Mark all as unread' : 'Mark all as read'}</p>
                                     </TooltipContent>
                                 </Tooltip>
                             </TooltipProvider>

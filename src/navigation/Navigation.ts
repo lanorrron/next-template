@@ -13,95 +13,20 @@ export const Navigation = (): MenuTypes => {
             icon: MdOutlineDashboard
         },
         {
-            title: 'Clients',
-            path: '/users',
-            icon: FaRegUser
+            title: 'User',
+            icon: FaRegUser,
+            subMenuItems: [
+                {
+                    title: 'List',
+                    path: '/user/list',
+                },
+                {
+                    title: 'View',
+                    path: '/user/view'
+                }
+            ]
         },
-        {
-            title: 'Chats',
-            path: '/',
-            icon: PiChatsBold,
-        },        {
-            title: 'Chats',
-            path: '/',
-            icon: PiChatsBold,
-        },        {
-            title: 'Chats',
-            path: '/',
-            icon: PiChatsBold,
-        },        {
-            title: 'Chats',
-            path: '/',
-            icon: PiChatsBold,
-        },        {
-            title: 'Chats',
-            path: '/',
-            icon: PiChatsBold,
-        },        {
-            title: 'Chats',
-            path: '/',
-            icon: PiChatsBold,
-        },        {
-            title: 'Chats',
-            path: '/',
-            icon: PiChatsBold,
-        },        {
-            title: 'Chats',
-            path: '/',
-            icon: PiChatsBold,
-        },        {
-            title: 'Chats',
-            path: '/',
-            icon: PiChatsBold,
-        },        {
-            title: 'Chats',
-            path: '/',
-            icon: PiChatsBold,
-        },        {
-            title: 'Chats',
-            path: '/',
-            icon: PiChatsBold,
-        },        {
-            title: 'Chats',
-            path: '/',
-            icon: PiChatsBold,
-        },        {
-            title: 'Chats',
-            path: '/',
-            icon: PiChatsBold,
-        },        {
-            title: 'Chats',
-            path: '/',
-            icon: PiChatsBold,
-        },        {
-            title: 'Chats',
-            path: '/',
-            icon: PiChatsBold,
-        },        {
-            title: 'Chats',
-            path: '/',
-            icon: PiChatsBold,
-        },        {
-            title: 'Chats',
-            path: '/',
-            icon: PiChatsBold,
-        },        {
-            title: 'Chats',
-            path: '/',
-            icon: PiChatsBold,
-        },        {
-            title: 'Chats',
-            path: '/',
-            icon: PiChatsBold,
-        },        {
-            title: 'Chats',
-            path: '/',
-            icon: PiChatsBold,
-        },        {
-            title: 'Chats',
-            path: '/',
-            icon: PiChatsBold,
-        },        {
+       {
             title: 'Chats',
             path: '/',
             icon: PiChatsBold,
