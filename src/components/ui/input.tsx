@@ -47,21 +47,19 @@ export const Input: FC<InputProps> = ({
                 </IconButton>
             )}
             <span className={'text-red-500 ml-3 text-sm'}>{errorMessage ? errorMessage : ''}</span>
-            <label style={{top: isFocused ? '-0.66rem' : ''}}
-                   className={`absolute cursor-text px-1 left-2.5 text-base font-normal transition-all transform origin-left 
+                <label style={{top: isFocused ? '-0.66rem' : '' ,whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis'}}
+                       className={`absolute cursor-text px-1 left-2.5 text-base font-normal transition-all transform origin-left 
                     peer-placeholder-shown:top-1.5 
                     peer-focus:left-2.5 
                     peer-focus:text-sm
                     peer-focus:scale-90 
-                    pointer-events-none truncate
-                      ${value || isFocused ? '-top-2.5 text-sm scale-90' : 'top-2.5'} 
-                    ${isFocused || value ? backGroundLabel : 'bg-transparent'}
-                     ${(error && isFocused) || error ? 'text-red-500' : isFocused ? 'text-primary' : 'text-muted-foreground'}
-                     w-full overflow-hidden`}
-
-            >
-                {props.label}
-            </label>
+                    pointer-events-none
+                     max-w-[calc(100%-1rem)]
+                      ${value || isFocused ? `-top-2.5 text-sm scale-90 ${backGroundLabel}` : 'top-2.5 bg-transparent'} 
+                     ${(error && isFocused) || error ? 'text-red-500' : isFocused ? 'text-primary' : 'text-muted-foreground'}`}
+                >
+                    {props.label}
+                </label>
         </div>
     );
 };

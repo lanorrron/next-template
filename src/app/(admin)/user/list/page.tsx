@@ -40,36 +40,41 @@ import {
 import useDebounce from "@/hooks/useDebounce";
 import {PaginationSimple} from "@/components/ui/paginationSimple";
 import {Chip} from "@/components/ui/chip";
-import { MdOutlineRemoveRedEye } from "react-icons/md";
-import { MdDeleteOutline } from "react-icons/md";
+import {MdOutlineRemoveRedEye} from "react-icons/md";
+import {MdDeleteOutline} from "react-icons/md";
 import IconButton from "@/components/ui/IconButton";
 import Link from "next/link";
-import { MdOutlineAdminPanelSettings } from "react-icons/md";
+import {MdOutlineAdminPanelSettings} from "react-icons/md";
 import {FaRegEdit, FaRegUser} from "react-icons/fa";
 
-function getColorChip(status: string){
-    switch (status){
-        case 'active':{
+function getColorChip(status: string) {
+    switch (status) {
+        case 'active': {
             return <Chip label={status} variant={'success'}/>
         }
-        case 'inactive':{
+        case 'inactive': {
             return <Chip label={status} variant={'default'}/>
         }
-        case 'pending':{
+        case 'pending': {
             return <Chip label={status} variant={'warning'}/>
         }
     }
 }
-function getIconsByRole(role: string){
-    switch (role){
-        case 'admin':{
-            return <div className={'flex items-center gap-1'}> <MdOutlineAdminPanelSettings size={'22px'} className={'text-red-500'}/> {role}</div>
+
+function getIconsByRole(role: string) {
+    switch (role) {
+        case 'admin': {
+            return <div className={'flex items-center gap-1'}><MdOutlineAdminPanelSettings size={'22px'}
+                                                                                           className={'text-red-500'}/> {role}
+            </div>
         }
-        case 'editor':{
-            return <div className={'flex items-center gap-1'}><FaRegEdit size={'19px'} className={'text-blue-400'}/>{role}</div>
+        case 'editor': {
+            return <div className={'flex items-center gap-1'}><FaRegEdit size={'19px'}
+                                                                         className={'text-blue-400'}/>{role}</div>
         }
-        case 'subscriber':{
-            return <div className={'flex items-center gap-1'}><FaRegUser size={'19px'} className={'text-violet-500'}/>{role}</div>
+        case 'subscriber': {
+            return <div className={'flex items-center gap-1'}><FaRegUser size={'19px'}
+                                                                         className={'text-violet-500'}/>{role}</div>
         }
     }
 }
@@ -83,13 +88,13 @@ function DataTableDemo() {
     const [pageSize, setPageSize] = useState<number>(10)
     const [currentPage, setCurrentPage] = useState<number>(1)
 
-    const searchValueDebounce: string = useDebounce(searchUser,300)
+    const searchValueDebounce: string = useDebounce(searchUser, 300)
     const [columnVisibility, setColumnVisibility] =
         React.useState<VisibilityState>({})
     const [rowSelection, setRowSelection] = React.useState({})
 
 
-     const columns: ColumnDef<UserType>[] = [
+    const columns: ColumnDef<UserType>[] = [
         {
             id: "select",
             header: ({table}) => (
@@ -132,7 +137,7 @@ function DataTableDemo() {
                 </span>
                 )
             },
-            cell: ({row}) => <div className=" capitalize">{row.getValue("email")}</div>,
+            cell: ({row}) => <div>{row.getValue("email")}</div>,
         },
         {
             accessorKey: "status",
@@ -155,10 +160,10 @@ function DataTableDemo() {
 
                 return (
                     <div className={'flex text-xl'}>
-                        <IconButton onClick={()=>handleDeleteUser(user.id)}>
+                        <IconButton onClick={() => handleDeleteUser(user.id)}>
                             <MdDeleteOutline/>
                         </IconButton>
-                        <IconButton >
+                        <IconButton>
                             <Link href={'/user/view'}>
                                 <MdOutlineRemoveRedEye/>
                             </Link>
@@ -183,33 +188,35 @@ function DataTableDemo() {
             sorting,
             columnVisibility,
             rowSelection,
-            pagination:{
+            pagination: {
                 pageSize,
-                pageIndex:users?.currentPage?? 0
+                pageIndex: users?.currentPage ?? 0
             },
         },
         manualPagination: true
     })
     useEffect(() => {
         let listUsersResponse: PaginationResponse;
-        if(!searchUser && !selectStatus && !selectRole){
-            listUsersResponse = getMockUsers({pageSize:pageSize, page: currentPage})
-        } else{
-             listUsersResponse = getMockUsers({
+        if (!searchUser && !selectStatus && !selectRole) {
+            listUsersResponse = getMockUsers({pageSize: pageSize, page: currentPage})
+        } else {
+            listUsersResponse = getMockUsers({
                 search: {names: searchValueDebounce, status: selectStatus, role: selectRole},
-                 pageSize: pageSize,
-                 page: currentPage
+                pageSize: pageSize,
+                page: currentPage
             });
         }
         setUsers(listUsersResponse);
         setCurrentPage(listUsersResponse.currentPage)
-    }, [searchValueDebounce,selectStatus, selectRole, pageSize, currentPage]);
+    }, [searchValueDebounce, selectStatus, selectRole, pageSize, currentPage]);
 
-    async function handleDeleteUser(id: number){
-        const params = {       search: {names: searchValueDebounce, status: selectStatus, role: selectRole},
+    async function handleDeleteUser(id: number) {
+        const params = {
+            search: {names: searchValueDebounce, status: selectStatus, role: selectRole},
             pageSize: pageSize,
-            page: currentPage}
-        const updateData = await deleteUser(id,params)
+            page: currentPage
+        }
+        const updateData = await deleteUser(id, params)
         setUsers(updateData)
     }
 
