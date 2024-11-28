@@ -19,6 +19,7 @@ export const NavigationSearch = () => {
     const [itemToSearch, setItemToSearch] = useState<string>('')
     const navigationOriginal = Navigation()
     const [navigationMenu, setNavigationMenu] = useState<MenuTypes>(navigationOriginal)
+    const [open, setOpen] = useState<boolean>(false)
 
     function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
         const value = e.target.value.toLowerCase().trim()
@@ -26,9 +27,12 @@ export const NavigationSearch = () => {
         const navigationItems = navigationOriginal.filter(item => item.title.toLowerCase().includes(value))
         setNavigationMenu(navigationItems)
     }
+    const handleChangeOpen=(value:boolean)=>{
+        setOpen(value)
+    }
 
     return (
-        <Dialog>
+        <Dialog modal={true} open={open} onOpenChange={handleChangeOpen} >
             <DialogTrigger asChild className={'cursor-pointer'}>
                 <div className={'flex items-center'}>
                     <IconButton>
@@ -54,7 +58,7 @@ export const NavigationSearch = () => {
                     } justify-start`}
                 >
                     {navigationMenu.map((item, index) => (
-                        <Link  href={item.path??''} key={index} className={'flex items-center gap-2 cursor-pointer'}>
+                        <Link href={item.path??''} key={index} className={'flex items-center gap-2 cursor-pointer'} onClick={()=>setOpen(false)}>
                                 {item.icon && <item.icon/>}
                                 {item.title}
                         </Link>

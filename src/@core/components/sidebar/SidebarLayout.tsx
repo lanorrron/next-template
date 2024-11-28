@@ -10,7 +10,7 @@ export const Sidebar = () => {
     return (
         <div className="flex flex-col h-screen">
             <div
-                className={`md:flex hidden bg-background h-full  ${settings.navCollapsed ? 'w-20 hover:w-72' : 'w-72'} flex-col rounded transition-all duration-500 ease-in-out group`}
+                className={`lg:flex hidden bg-background h-full  ${settings.navCollapsed ? 'w-20 hover:w-72' : 'w-72'} flex-col rounded transition-all duration-500 ease-in-out group`}
             >
                 <div className="sticky top-0  z-10 mt-2 ">
                     <SidebarHeader/>

@@ -103,7 +103,7 @@ export const SidebarContent = ({onClose, isOpenDrawer}: Props) => {
                                     {item.subMenuItems.map((subItem, subIndex) => (
                                         <Link href={subItem.path} key={subIndex} onClick={onClose}>
                                             <li key={subIndex}
-                                                className={`text-sm flex items-center gap-x-4 cursor-pointer p-2 my-2 rounded-md   ${openSubMenus.includes(index) && pathName === subItem.path ? 'bg-primary' : 'hover:bg-accent'}`}>
+                                                className={`text-sm flex items-center gap-x-4 cursor-pointer p-2 my-2 rounded-md   ${openSubMenus.includes(index) && pathName === subItem.path ? 'bg-primary text-white' : 'hover:bg-accent'}`}>
                                                 <TbPointFilled/>
                                                 <Typography variant={'body1'} className={`${ellipsisTextClass}`}>
                                                     {subItem.title}

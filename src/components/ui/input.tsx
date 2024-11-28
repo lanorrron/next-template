@@ -53,10 +53,11 @@ export const Input: FC<InputProps> = ({
                     peer-focus:left-2.5 
                     peer-focus:text-sm
                     peer-focus:scale-90 
-                    pointer-events-none
+                    pointer-events-none truncate
                       ${value || isFocused ? '-top-2.5 text-sm scale-90' : 'top-2.5'} 
                     ${isFocused || value ? backGroundLabel : 'bg-transparent'}
-                     ${(error && isFocused) || error ? 'text-red-500' : isFocused ? 'text-primary' : 'text-muted-foreground'}`}
+                     ${(error && isFocused) || error ? 'text-red-500' : isFocused ? 'text-primary' : 'text-muted-foreground'}
+                     w-full overflow-hidden`}
 
             >
                 {props.label}

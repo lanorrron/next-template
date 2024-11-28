@@ -10,7 +10,7 @@ const variantMapping = {
     subtitle1: 'text-lg font-medium',
     subtitle2: 'text-base font-medium ',
     body1: 'text-base',
-    body2: 'text-sm',
+    body2: 'text-sm text-muted-foreground',
     inherit: '',
 };
 interface Props {

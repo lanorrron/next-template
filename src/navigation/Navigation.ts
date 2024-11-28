@@ -1,8 +1,9 @@
 import {MenuTypes} from "@/navigation/types";
 import { MdOutlineDashboard } from "react-icons/md";
 import { FaRegUser } from "react-icons/fa";
-import { PiChatsBold } from "react-icons/pi";
-import { MdOutlineCastForEducation } from "react-icons/md";
+
+/*import { PiChatsBold } from "react-icons/pi";
+import { MdOutlineCastForEducation } from "react-icons/md";*/
 
 export const Navigation = (): MenuTypes => {
     let routes = []
@@ -26,7 +27,7 @@ export const Navigation = (): MenuTypes => {
                 }
             ]
         },
-       {
+/*       {
             title: 'Chats',
             path: '/',
             icon: PiChatsBold,
@@ -48,7 +49,7 @@ export const Navigation = (): MenuTypes => {
                     path: '/',
                 }
             ]
-        },
+        },*/
     ]
 
     return routes

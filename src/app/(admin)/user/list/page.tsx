@@ -259,7 +259,7 @@ function DataTableDemo() {
             </div>
             <div className="rounded-md">
                 <Table>
-                    <TableHeader className={'bg-accent/90 '}>
+                    <TableHeader className={'bg-accent/90'}>
                         {table.getHeaderGroups().map((headerGroup) => (
                             <TableRow key={headerGroup.id}>
                                 {headerGroup.headers.map((header) => {
@@ -307,7 +307,7 @@ function DataTableDemo() {
                     </TableBody>
                 </Table>
             </div>
-            <div className="flex items-center justify-between gap-2 transparent-scrollbar">
+            <div className="flex items-center justify-between gap-2 transparent-scrollbar ml-4">
                 <Typography className="text-sm text-muted-foreground flex-shrink-0 whitespace-nowrap">
                     {table.getFilteredSelectedRowModel().rows.length} of{" "}
                     {table.getFilteredRowModel().rows.length} row(s) selected.
