@@ -1,3 +1,7 @@
+
+## Description
+This project is a simple and compact admin panel built with SHDCN and Tailwind CSS. It offers a flexible structure for creating and customizing administrative dashboards, allowing you to easily modify and implement new features as needed.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
